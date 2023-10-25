@@ -29,12 +29,6 @@ def share(request):
 
         with SCPClient(ssh.get_transport()) as scp:
             scp.put('./media/result/share.txt', './txt/share/', preserve_times=True)
-
-        with SCPClient(ssh.get_transport()) as scp:
-            scp.get('/txt/share/summed.txt', './media/result/share.txt')
-            scp.get('/txt/share/background.png', './media/')
-            scp.get('/txt/share/color.png', './media/')
-
         ssh.close()
 
         return Response(dL)

@@ -2,6 +2,7 @@ import http.client
 
 import paramiko
 from django.db.migrations import serializer
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
@@ -14,7 +15,7 @@ from scp import SCPClient
 
 from download.models import DownLoad
 from download.serializers import DownLoadSerializer
-
+from django.shortcuts import redirect
 
 @csrf_exempt
 def getfile(request):
@@ -29,4 +30,4 @@ def getfile(request):
 
     ssh.close()
 
-    return Response(serializer.models.Model)
+    return redirect("10.50.99.242")
